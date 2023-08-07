@@ -101,21 +101,37 @@ function renderTasks() {
     todoListElement.innerHTML = renederdTasks.join('\n')
 }
 
-function deleteTask(taskId){
-    if((typeof taskId  !='string') ||!taskId){
-        return
-    }
-    let newTaskList=[];
-    for(let i=0;i<taskList.length;i++){
-        if(taskList[i].id !==taskId){
-        newTaskList.push(taskList[i]);
-        console.log('deleted');
-    }
+// function deleteTask(taskId){
+//     if((typeof taskId  !='string') ||!taskId){
+//         return
+//     }
+//     let newTaskList=[];
+//     for(let i=0;i<taskList.length;i++){
+//         if(taskList[i].id !==taskId){
+//         newTaskList.push(taskList[i]);
+//         console.log('deleted');
+//     }
 
+//     }
+//     taskList=newTaskList;
+//     renderTasks();
+// }
+
+function deleteTask(taskId) {
+    if (typeof taskId != "string" || !taskId) {
+      return;
     }
-    taskList=newTaskList;
+    // let newTaskList=[];
+    for (let i = 0; i < taskList.length; i++) {
+      if (taskList[i].id === taskId) {
+        //newTaskList.push(taskList[i]);
+        taskList.splice(i,1);
+        
+      }
+    }
+  
     renderTasks();
-}
+  }
 
 function deleteHandler(taskId) {
     deleteTask(taskId)
